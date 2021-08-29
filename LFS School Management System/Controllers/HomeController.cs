@@ -26,5 +26,10 @@ namespace LFS_School_Management_System.Controllers
 
             return View();
         }
+
+        public ActionResult TestView()
+        {
+            return View();
+        }
     }
 }
