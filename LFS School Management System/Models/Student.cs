@@ -23,7 +23,7 @@ namespace LFS_School_Management_System.Models
         public int StudentID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public Nullable<System.DateTime> EnrollmentDate { get; set; }
+        public System.DateTime EnrollmentDate { get; set; }
         public string MiddleName { get; set; }
         public string FatherName { get; set; }
     

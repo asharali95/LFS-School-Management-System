@@ -5,21 +5,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<style>
+    table{
+        margin-top: 10px;
+    }
+    dt {
+        box-sizing: border-box;
+        padding: 2px;
+        text-align: left !important;
+    }
+    dd{
+        box-sizing: border-box;
+        padding: 5px;
+    }
+</style>
+<h2>Student's Details</h2>
 
 <div>
-    <h4>Student</h4>
+    <h4> @Html.DisplayFor(model => model.FirstName) 
+    @Html.DisplayFor(model => model.MiddleName) 
+    @Html.DisplayFor(model => model.LastName)
+    </h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.FirstName):
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.FirstName)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.MiddleName)
+            @Html.DisplayNameFor(model => model.MiddleName):
         </dt>
 
         <dd>
@@ -27,7 +44,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.LastName):
         </dt>
 
         <dd>
@@ -35,7 +52,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FatherName)
+            @Html.DisplayNameFor(model => model.FatherName):
         </dt>
 
         <dd>
@@ -43,13 +60,45 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
+            @Html.DisplayNameFor(model => model.EnrollmentDate):
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.EnrollmentDate)
         </dd>
+  
 
+        <table class="table table-condensed table-responsive">
+            <tr>
+                  <th class="h4"><b>Course Title</b></th>
+                  <th class="h4"><b>Credit Hours</b></th>
+                  <th class="h4"><b>Grade</b></th>
+            </tr>
+            @foreach(var enrollment in Model.Enrollments)
+            {
+        <tr>
+            <td>
+                <p>
+                    @enrollment.Course.Title
+                </p>
+            </td>
+            <td>
+                <p>
+                    @enrollment.Course.Credits
+                </p>
+            </td>
+            <td>
+                <p>
+                    @if (@enrollment.Grade == null)
+                    {
+                        @:not graded yet
+                    }
+                    @enrollment.Grade
+                </p>
+            </td>
+        </tr>
+            }
+        </table>
     </dl>
 </div>
 <p>

@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Student Data Page</h2>
+<h2>List of Students</h2>
 
-<button class="btn ">
-   @Html.ActionLink("Add new student", "Create")
-</button>
+<p>
+    @Html.ActionLink("Add new student", "Create",null,new {@class="btn btn-primary" })
+</p>
 <table class="table">
     <tr>
         <th>
@@ -24,25 +24,35 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(model => item.FirstName)
-            @Html.DisplayFor(model => item.MiddleName)
-            @Html.DisplayFor(model => item.LastName)
-        </td>
-        <td>
-           @Html.DisplayFor(model => item.FatherName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnrollmentDate)
-        </td>
-        <td>
-            <button>@Html.ActionLink("Edit", "Edit", new { id = item.StudentID })</button> |
-            <button> @Html.ActionLink("Details", "Details", new { id = item.StudentID })</button> | 
-            <button> @Html.ActionLink("Delete", "Delete", new { id = item.StudentID })</button>
-</td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.FirstName)
+                @Html.DisplayFor(model => item.MiddleName)
+                @Html.DisplayFor(model => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.FatherName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)
+            </td>
+            <td>
+                <span>@Html.ActionLink("Edit", "Edit", new { id = item.StudentID }, new { @class = "btn btn-primary" })</span> |
+                <span> @Html.ActionLink("Details", "Details", new { id = item.StudentID }, new { @class = "btn btn-info" })</span> |
+                <span> @Html.ActionLink("Delete", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })</span>
+            </td>
+        </tr>
+    }
 
 </table>
+
+<style>
+    table{
+        margin-top: 5px;
+    }
+    td {
+        vertical-align: middle !important;
+    }
+</style>
