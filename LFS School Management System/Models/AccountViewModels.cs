@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace LFS_School_Management_System.Models
@@ -66,8 +67,14 @@ namespace LFS_School_Management_System.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Email address / Username")]
         public string Email { get; set; }
+
+        [Required]
+        [DataType(DataType.DateTime)]
+        [Display(Name ="Date of Birth")]
+        public DateTime BirthDate { get; set; }
+
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
