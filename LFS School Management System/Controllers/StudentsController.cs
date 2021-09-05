@@ -11,11 +11,14 @@ using LFS_School_Management_System.Models;
 
 namespace LFS_School_Management_System.Controllers
 {
+
+    [Authorize(Roles ="Teacher")]
     public class StudentsController : Controller
     {
         private LFS_School_ManagementDB_Entities db = new LFS_School_ManagementDB_Entities();
 
         // GET: Students
+        [AllowAnonymous]
         public async Task<ActionResult> Index() // using async approach
         {
             return View(await db.Students.ToListAsync());

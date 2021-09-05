@@ -50,9 +50,8 @@ namespace LFS_School_Management_System.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Username")]
+        public string Username { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -66,8 +65,12 @@ namespace LFS_School_Management_System.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
         [EmailAddress]
-        [Display(Name = "Email address / Username")]
+        [Display(Name = "Email address")]
         public string Email { get; set; }
 
         [Required]
@@ -86,6 +89,12 @@ namespace LFS_School_Management_System.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name ="User Roles")]
+        public string UserRole { get; set; }
+
+
     }
 
     public class ResetPasswordViewModel
