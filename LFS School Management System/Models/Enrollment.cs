@@ -11,12 +11,14 @@ namespace LFS_School_Management_System.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Enrollment
     {
         public int EnrollmentID { get; set; }
         public Nullable<decimal> Grade { get; set; }
+
         public int CourseID { get; set; }
+
         public int StudentID { get; set; }
         public Nullable<int> LecturerId { get; set; }
     
