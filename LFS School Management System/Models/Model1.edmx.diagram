@@ -10,6 +10,8 @@
         <EntityTypeShape EntityType="LFS_School_ManagementDB_Model.Student" Width="1.5" PointX="5.5" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="LFS_School_ManagementDB_Model.FK_dbo_Enrollment_dbo_Course_CourseID" ManuallyRouted="false" />
         <AssociationConnector Association="LFS_School_ManagementDB_Model.FK_dbo_Enrollment_dbo_Student_StudentID" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LFS_School_ManagementDB_Model.Lecturer" Width="1.5" PointX="3" PointY="4.125" />
+        <AssociationConnector Association="LFS_School_ManagementDB_Model.FK_dbo_Enrollment_dbo_Lecturer_LecturerID" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
