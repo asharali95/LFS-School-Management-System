@@ -6,7 +6,11 @@
 }
 
 <h2>Index</h2>
-
+<style>
+    #fontweight{
+        font-weight: 700;
+    }
+</style>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -28,12 +32,12 @@
 <tr>
     @if (item.Grade == null)
     {
-        <td class="text-danger">
+        <td id="fontweight" class="text-danger">
             @Html.DisplayName("Not graded yet")
         </td>
 
     }
-    else { <td class="text-success">@Html.DisplayFor(modelItem => item.Grade)</td>}
+    else { <td  id="fontweight" class="text-success">@Html.DisplayFor(modelItem => item.Grade)</td>}
     <td>
         @Html.DisplayFor(modelItem => item.Course.Title)
     </td>

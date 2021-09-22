@@ -62,6 +62,18 @@ namespace LFS_School_Management_System.Controllers
             return View(student);
         }
 
+        [HttpPost]
+        public async Task<JsonResult> AddStudent([Bind(Include = "StudentID,LastName,FirstName,EnrollmentDate,MiddleName,FatherName")] Student student) {
+            
+            if (ModelState.IsValid)
+            {
+                db.Students.Add(student);
+               await db.SaveChangesAsync();
+                return Json(new { IsSuccess=true }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { IsSuccess = false }, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Students/Edit/5
         public ActionResult Edit(int? id)
         {
