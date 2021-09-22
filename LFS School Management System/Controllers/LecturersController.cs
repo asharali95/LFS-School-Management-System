@@ -11,7 +11,7 @@ using LFS_School_Management_System.Models;
 
 namespace LFS_School_Management_System.Controllers
 {
-    [Authorize(Roles ="Admin")]
+   // [Authorize(Roles ="Admin")]
     public class LecturersController : Controller
     {
         private LFS_School_ManagementDB_Entities db = new LFS_School_ManagementDB_Entities();
@@ -49,7 +49,7 @@ namespace LFS_School_Management_System.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,First_Name,Last_Name")] Lecturer lecturer)
+        public async Task<ActionResult> Create([Bind(Include = "First_Name,Last_Name")] Lecturer lecturer)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +61,17 @@ namespace LFS_School_Management_System.Controllers
             return View(lecturer);
         }
 
+        [HttpPost]
+        public async Task<JsonResult> addLecturer([Bind(Include = "First_Name,Last_Name")] Lecturer lecturer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Lecturers.Add(lecturer);
+                await db.SaveChangesAsync();
+                return Json(new { IsSuccess=true },JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { IsSuccess = false }, JsonRequestBehavior.AllowGet);
+        }
         // GET: Lecturers/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
