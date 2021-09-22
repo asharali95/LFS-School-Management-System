@@ -21,39 +21,34 @@
         <th>
             @Html.DisplayName("Student Name")
         </th>
-        <th>
-            @Html.DisplayName("Lecturer Name")
-        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @if (item.Grade == null)
-            {
-                @Html.DisplayName("Not graded yet")
-            }
-            @Html.DisplayFor(modelItem => item.Grade)
+<tr>
+    @if (item.Grade == null)
+    {
+        <td class="text-danger">
+            @Html.DisplayName("Not graded yet")
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Course.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.FirstName)
-            @Html.DisplayFor(modelItem => item.Student.MiddleName)
-            @Html.DisplayFor(modelItem => item.Student.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lecturer.First_Name)
-            @Html.DisplayFor(modelItem => item.Lecturer.Last_Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EnrollmentID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EnrollmentID })
-        </td>
-    </tr>
+
+    }
+    else { <td class="text-success">@Html.DisplayFor(modelItem => item.Grade)</td>}
+    <td>
+        @Html.DisplayFor(modelItem => item.Course.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Student.FirstName)
+        @Html.DisplayFor(modelItem => item.Student.MiddleName)
+        @Html.DisplayFor(modelItem => item.Student.LastName)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.EnrollmentID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentID })
+    </td>
+</tr>
 }
 
 </table>
