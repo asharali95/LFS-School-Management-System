@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Courses</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Course", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -18,7 +18,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Credits)
         </th>
-        <th></th>
+        <th style="
+    text-align: center;
+">Actions</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -29,10 +31,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.Credits)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseID })
+        <td style="display: flex; justify-content: space-evenly">
+            @Html.ActionLink("Edit", "Edit", new { id=item.CourseID }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.CourseID }, new { @class = "btn btn-info" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.CourseID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

@@ -201,6 +201,7 @@
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Meta classes\CoursesMetaData.cs" />
+    <Compile Include="Models\Meta classes\EnrollmentsMetaData.cs" />
     <Compile Include="Models\Meta classes\LecturersMetaData.cs" />
     <Compile Include="Models\Meta classes\StudentMetaData.cs" />
     <Compile Include="Models\Model1.Context.cs">
@@ -368,6 +369,7 @@
     <Content Include="Views\Enrollments\Details.cshtml" />
     <Content Include="Views\Enrollments\Edit.cshtml" />
     <Content Include="Views\Enrollments\Index.cshtml" />
+    <Content Include="Views\Enrollments\_enrollmentPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,7 +21,9 @@
         <th>
             @Html.DisplayNameFor(model => model.EnrollmentDate)
         </th>
-        <th></th>
+        <th style="
+    text-align: center;
+">Actions</th>
     </tr>
 
     @foreach (var item in Model)
@@ -38,10 +40,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EnrollmentDate)
             </td>
-            <td>
-                <span>@Html.ActionLink("Edit", "Edit", new { id = item.StudentID }, new { @class = "btn btn-primary" })</span> |
-                <span> @Html.ActionLink("Details", "Details", new { id = item.StudentID }, new { @class = "btn btn-info" })</span> |
-                <span> @Html.ActionLink("Delete", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })</span>
+            <td style="display: flex; justify-content: space-evenly">
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.StudentID }, new { @class = "btn btn-info" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentID }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

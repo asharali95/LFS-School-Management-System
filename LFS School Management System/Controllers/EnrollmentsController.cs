@@ -24,6 +24,15 @@ namespace LFS_School_Management_System.Controllers
             return View(await enrollments.ToListAsync());
         }
 
+        public PartialViewResult _enrollmentPartial(int? courseId)
+        {
+            var enrollments = db.Enrollments.Where(q=> q.CourseID ==courseId)
+                .Include(e => e.Course)
+                .Include(e => e.Student);
+            return PartialView(enrollments.ToList());
+        }
+
+
         // GET: Enrollments/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -74,7 +83,7 @@ namespace LFS_School_Management_System.Controllers
             try
             {
                 var isEnrolled = db.Enrollments.Any(q => q.CourseID == enrollment.CourseID && q.StudentID == enrollment.StudentID);
-                if (ModelState.IsValid && !isEnrolled && enrollment.Grade < 4)
+                if (ModelState.IsValid && !isEnrolled)
                 {
                     db.Enrollments.Add(enrollment);
                     await db.SaveChangesAsync();

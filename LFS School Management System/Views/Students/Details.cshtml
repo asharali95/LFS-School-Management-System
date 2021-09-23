@@ -6,6 +6,9 @@
 }
 
 <style>
+    #fontWeight{
+        font-weight:600;
+    }
     table{
         margin-top: 10px;
     }
@@ -87,21 +90,25 @@
                     @enrollment.Course.Credits
                 </p>
             </td>
-            <td>
-                <p>
-                    @if (@enrollment.Grade == null)
-                    {
-                        @:not graded yet
-                    }
-                    @enrollment.Grade
-                </p>
-            </td>
+            @if (@enrollment.Grade == null)
+            {
+        <td id="fontWeight" class="text-danger">
+            Not graded yet.
+        </td>
+            }
+                else
+                {
+        <td id="fontWeight" class="text-success">
+            @enrollment.Grade
+        </td>
+                }
+
         </tr>
             }
         </table>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentID }, new { @class = "btn btn-success" }) 
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
 </p>

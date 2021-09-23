@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<LFS_School_Management_System.Models.Enrollment>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Enrollment";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Enrollment</h2>
 <style>
     #fontweight{
         font-weight: 700;
     }
 </style>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Enrollment", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -25,7 +25,9 @@
         <th>
             @Html.DisplayName("Student Name")
         </th>
-        <th></th>
+        <th style="
+    text-align: center;
+">Actions</thstyle=">
     </tr>
 
 @foreach (var item in Model) {
@@ -47,10 +49,10 @@
         @Html.DisplayFor(modelItem => item.Student.LastName)
     </td>
 
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.EnrollmentID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentID })
+    <td style="display: flex; justify-content: space-evenly">
+        @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentID }, new { @class = "btn btn-primary" }) 
+        @Html.ActionLink("Details", "Details", new { id = item.EnrollmentID }, new { @class = "btn btn-info" }) 
+        @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentID }, new { @class = "btn btn-danger" })
     </td>
 </tr>
 }

@@ -13,7 +13,7 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: #FF7171 !important; border-color: #FF7171 ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("LFS Management System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -37,13 +37,31 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year -LFS Management System</p>
-        </footer>
     </div>
 
-
+    <style>
+        .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+            color: white !important;
+        }
+        .btn-primary {
+            background-color: #9090ff !important;
+            border-color: #9090ff;
+        }
+            .btn-primary:hover {
+                background-color: #8484e9 !important;
+                border-color: #8484e9 !important;
+            }
+        .btn-info {
+            background-color: #a4abad !important;
+            border-color: #a4abad !important;
+        }
+            .btn-info:hover {
+                background-color: #8a9193 !important;
+            }
+            .btn{
+                padding:5px 30px !important;
+            }
+    </style>
     @RenderSection("scripts", required: false)
 </body>
 </html>

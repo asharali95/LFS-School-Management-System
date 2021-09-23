@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<LFS_School_Management_System.Models.Lecturer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Lecturer";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Lecturer</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Lecturer", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -18,7 +18,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Last_Name)
         </th>
-        <th></th>
+        <th style="padding-left: 100px">Actions</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -30,9 +30,9 @@
             @Html.DisplayFor(modelItem => item.Last_Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class = "btn btn-info" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

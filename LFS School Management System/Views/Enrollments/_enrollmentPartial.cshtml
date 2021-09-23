@@ -1,0 +1,57 @@
+﻿@model IEnumerable<LFS_School_Management_System.Models.Enrollment>
+
+<style>
+    #fontweight{
+        font-weight: 700;
+    }
+
+</style>
+@if (Model.Count() < 1)
+{
+    <h2 class="text-center text-info">No Enrollments in this course yet.</h2>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course.Title)
+            </th>
+            <th>
+                Student Name
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        @if (item.Grade == null)
+        {
+            <td id="fontweight" class="text-danger">
+                @Html.DisplayName("Not graded yet")
+            </td>
+
+        }
+        else
+        {
+            <td id="fontweight" class="text-success">@Html.DisplayFor(modelItem => item.Grade)</td>
+}
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)  @Html.DisplayFor(modelItem => item.Student.MiddleName) @Html.DisplayFor(modelItem => item.Student.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+        }
+
+    </table>
+
+}

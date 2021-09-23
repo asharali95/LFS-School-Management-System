@@ -5,11 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
-
-<h3 class="alert alert-danger">Are you sure you want to delete this?</h3>
+<h2>Delete Course</h2>
+<style>
+    dd, dt {
+        padding: 2px 2px;
+    }
+</style>
+<h3 class="text-danger">Are you sure you want to delete this?</h3>
 <div>
-    <h4>Course</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -34,8 +37,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
         </div>
     }
 </div>
