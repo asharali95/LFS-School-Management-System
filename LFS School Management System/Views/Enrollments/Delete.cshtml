@@ -17,7 +17,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-           
+
             @Html.DisplayNameFor(model => model.Grade)
         </dt>
 
@@ -51,11 +51,20 @@
         <dt>
             @Html.DisplayName("Lecturer Name")
         </dt>
+        @if (Model.LecturerId != null)
+        {
+            <dd>
+                @Html.DisplayFor(model => model.Lecturer.First_Name)
+                @Html.DisplayFor(model => model.Lecturer.Last_Name)
+            </dd>
+ }
+        else
+        {
+            <dd>
+               Not assigned yet.
+            </dd>
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Lecturer.First_Name)
-            @Html.DisplayFor(model => model.Lecturer.Last_Name)
-        </dd>
 
     </dl>
 
@@ -63,7 +72,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <input type="submit" value="Unenroll" class="btn btn-danger" />
             @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
         </div>
     }

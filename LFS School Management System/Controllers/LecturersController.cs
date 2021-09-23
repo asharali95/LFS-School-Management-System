@@ -11,7 +11,7 @@ using LFS_School_Management_System.Models;
 
 namespace LFS_School_Management_System.Controllers
 {
-   // [Authorize(Roles ="Admin")]
+   [Authorize(Roles ="Admin")]
     public class LecturersController : Controller
     {
         private LFS_School_ManagementDB_Entities db = new LFS_School_ManagementDB_Entities();
